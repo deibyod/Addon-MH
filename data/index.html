@@ -15,10 +15,16 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $("li").prepend("<i class='icon-fighter-jet'></i> ");
-            $('#mozhispano').rssfeed('http://feeds.mozilla-hispano.org/mozillahispano',{}, function(e) {
+            $('#mozhispano').rssfeed('http://feeds.mozilla-hispano.org/mozillahispano',{ linktarget:'_blank' }, function(e) {
                 $(e).find('div.rssBody').vTicker({ showItems: 1});
             });
-            $('#planet').rssfeed('http://feeds.mozilla-hispano.org/mozillahispano-planet',{}, function(e) {
+            $('#planet').rssfeed('http://feeds.mozilla-hispano.org/mozillahispano-planet',{ linktarget:'_blank' }, function(e) {
+                $(e).find('div.rssBody').vTicker({ showItems: 1});
+            });
+            $('#reuniones').rssfeed('https://www.mozilla-hispano.org/documentacion/Especial:Ask/-5B-5BCategor%C3%ADa:Reuniones-5D-5D/-3FArea/-3FProyecto/-3FFechainicio%3Dstart/limit%3D50/order%3DDESC/sort%3DFechainicio/format%3Drss/title%3DReuniones-20Mozilla-20Hispano/description%3DListado-20de-20reuniones-20comunitarias',{ header:false, linktarget:'_blank', date:false, limit:5, content:false }, function(e) {
+                $(e).find('div.rssBody').vTicker({ showItems: 1});
+            });
+            $('#eventos').rssfeed('https://www.mozilla-hispano.org/documentacion/Especial:Ask/-5B-5BCategor%C3%ADa:Evento-5D-5D/-3F%3DNombre-23/-3FFechainicio%3DFecha/-3FPais/-3FCiudad/-3FUrl/mainlabel%3DNombre/limit%3D50/order%3DDESC,DESC/sort%3DFechainicio,/format%3Drss',{ header:false, linktarget:'_blank', date:false, limit:5, content:false }, function(e) {
                 $(e).find('div.rssBody').vTicker({ showItems: 1});
             });
         });
@@ -77,42 +83,35 @@
                     <div class="small-6 columns">
                         <h3>Reuniones</h3>
                         <p>
-                             <ul>
-                                <li>
-                                    <a href="https://www.mozilla-hispano.org/documentacion/Form:Reunion" class="small button success" target="_blank">
-                                        <i class="icon-plus"></i>&nbsp;A&ntilde;adir Reuni&oacute;n
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.mozilla-hispano.org/documentacion/Reuniones" class="small button success" target="_blank">
-                                        <i class="icon-coffee"></i>&nbsp;Ver Pr&oacute;ximas&nbsp;&nbsp;&nbsp;
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.mozilla-hispano.org/documentacion/Reuniones/Procedimientos" class="small button success" target="_blank">
-                                        <i class="icon-book"></i>&nbsp;Documentaci&oacute;n
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href="https://www.mozilla-hispano.org/documentacion/Form:Reunion" class="add-button" target="_blank">
+                                <i class="icon-plus"></i>&nbsp;A&ntilde;adir Reuni&oacute;n
+                            </a>
+                            <a href="https://www.mozilla-hispano.org/documentacion/Reuniones" class="add-button" target="_blank">
+                                <i class="icon-coffee"></i>&nbsp;Ver Pr&oacute;ximas&nbsp;&nbsp;&nbsp;
+                            </a>
+                            <a href="https://www.mozilla-hispano.org/documentacion/Reuniones/Procedimientos" class="add-button" target="_blank">
+                                <i class="icon-book"></i>&nbsp;Documentaci&oacute;n
+                            </a>
                         </p>
                     </div>
                     <div class="small-6 columns">
                         <h3>Eventos</h3>
                         <p>
-                             <ul>
-                                <li>
-                                    <a href="https://www.mozilla-hispano.org/documentacion/Form:Evento" class="small button success" target="_blank">
-                                        <i class="icon-plus"></i>&nbsp;A&ntilde;adir Evento
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.mozilla-hispano.org/documentacion/Eventos" class="small button success" target="_blank">
-                                        <i class="icon-beer"></i>&nbsp;Ver Pr&oacute;ximos&nbsp;
-                                    </a>
-                                </li>
-                            </ul>
+                            <a href="https://www.mozilla-hispano.org/documentacion/Form:Evento" class="add-button" target="_blank">
+                                <i class="icon-plus"></i>&nbsp;A&ntilde;adir Evento
+                            </a>
+                            <a href="https://www.mozilla-hispano.org/documentacion/Eventos" class="add-button" target="_blank">
+                                <i class="icon-beer"></i>&nbsp;Ver Pr&oacute;ximos&nbsp;
+                            </a>
                         </p>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="small-6 columns">
+                        <div id="reuniones"></div>
+                    </div>
+                    <div class="small-6 columns">
+                        <div id="eventos"></div>
                 </div>
 			</div>
 		</section>
@@ -213,7 +212,7 @@
 			<p class="title"><a href="#">Acerca de</a></p>
 			<div class="content">
 				<p>
-					<img alt="Logo Mozilla Hispano" src="img/logoabout.png" width="85%">5
+					<img alt="Logo Mozilla Hispano" src="img/logoabout.png" width="85%">
                     <p class="first" style="text-align: justify"><strong>El Centro de Mozilla Hispano</strong> es una Addon 
                     para <a href="www.mozilla.org/firefox/fx/" target="_blank">Mozilla Firefox</a> creado con el fin de
                     agilizar y facilitar el acceso a distintas herramientas e informaci&oacute;n que los voluntarios de las diferentes areas de

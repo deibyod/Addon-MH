@@ -138,8 +138,8 @@ select {
 }
 .rssHeader {
     background-color: rgba(255,255,255,0.5);
-    margin-left: 6em;
-    margin-right: 1em;
+    margin-left: 4em;
+    margin-right: 0.5em;
     padding: 5px;
     border-radius: 0.5em 0.5em 0 0;
     text-align: center;
@@ -170,7 +170,9 @@ select {
 .rssBody {
     height: 14em !important;
 }
-
+#reuniones .rssBody, #eventos .rssBody {
+    height: 5em !important;
+}
 .desc {
     font-size: 0.9em;
 }
@@ -179,4 +181,38 @@ select {
 }
 .social img:hover {
     opacity: 0.9;
+}
+.add-button {
+    background-color:#84C63C;
+    background: -moz-linear-gradient(#84C63C, #489615) repeat scroll 0 0 #489615;
+    background: -webkit-linear-gradient(#84C63C, #489615) repeat scroll 0 0 #489615;
+    background: -ms-linear-gradient(#84C63C, #489615) repeat scroll 0 0 #489615;
+    background: -o-linear-gradient(#84C63C, #489615) repeat scroll 0 0 #489615;
+    background: linear-gradient(#84C63C, #489615) repeat scroll 0 0 #489615;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px rgba(0, 0, 0, 0.1), 0 -4px rgba(0, 0, 0, 0.1) inset;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 7px 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}
+a.add-button {
+    color: #EEEEEE;
+}
+.add-button:hover {
+    text-decoration: none;
+    background: -moz-linear-gradient(#84C63C, #80BC4C) repeat scroll 0 0 #84C63C;
+    background: -webkit-linear-gradient(#84C63C, #80BC4C) repeat scroll 0 0 #84C63C;
+    background: -ms-linear-gradient(#84C63C, #80BC4C) repeat scroll 0 0 #84C63C;
+    background: -o-linear-gradient(#84C63C, #80BC4C) repeat scroll 0 0 #84C63C;
+    background: linear-gradient(#84C63C, #80BC4C) repeat scroll 0 0 #84C63C;
+}
+a.add-button:hover {
+    color: #FFFFFF;
 }
