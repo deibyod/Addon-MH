@@ -46,6 +46,11 @@ li {
     padding-left: 10px; 
 }
 
+select {
+    font-size: 0.9em;
+    padding: 0.2em;
+}
+
 #remo-top {
 	background: url('../img/bg-sky.png') 0 0 repeat-x;
 	padding: 20px 0 0 0;
@@ -112,27 +117,60 @@ li {
     background-color: transparent;
 }
 
+.botonBuscar, .botonBuscar:hover, .botonBuscar:active {
+    background: none;
+    border: 0px;
+    padding: 0px;
+    margin: 0 auto;
+    color: rgb(0, 149, 221);
+}
+
+.botonBuscar, .botonBuscar:active {
+    color: rgb(0, 149, 221);
+}
+
+.botonBuscar:hover {
+    color: #104E8B;
+}
+
 .icon-search {
     font-size: 200%;
 }
-
-.areas {
-    float: left;
-    background-color: rgba(244,244,244,0.6);
-    margin: 0.4em;
+.rssHeader {
+    background-color: rgba(255,255,255,0.5);
+    margin-left: 6em;
+    margin-right: 1em;
+    padding: 5px;
+    border-radius: 0.5em 0.5em 0 0;
+    text-align: center;
+}
+.rssBody, .areas {
+    background-color: rgba(245,245,245,0.5);
     padding: 0.4em;
     border-radius: 0.2em;
-    width: 45%;
-    max-width: 16em;
-    height: 16em;
-    overflow: hidden;
     opacity: 0.7;
     box-shadow: inset 0 0 5px #666;
 }
-.areas:hover {
+.rssBody:hover, .areas:hover {
     opacity: 0.9;
-    box-shadow: 0 0 10px #555;
+    box-shadow: 0 0 8px #555;
 }
+.areas {
+    float: left;
+    width: 45%;
+    max-width: 18em;
+    height: 14em;
+    overflow: hidden;
+    margin: 0.4em;
+}
+.areas img {
+    float: left;
+    padding-right: 0.5em;
+}
+.rssBody {
+    height: 14em !important;
+}
+
 .desc {
     font-size: 0.9em;
 }

@@ -14,14 +14,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#busqueda").keypress(function(){
-                var criterioBusqueda = $("#busqueda").val();
-                var urlBusqueda = "http://www.mozilla-hispano.org/?s="+criterioBusqueda;
-                $("#buscar").attr("href",urlBusqueda);
-            });
-            
             $("li").prepend("<i class='icon-fighter-jet'></i> ");
-
             $('#mozhispano').rssfeed('http://feeds.mozilla-hispano.org/mozillahispano',{}, function(e) {
                 $(e).find('div.rssBody').vTicker({ showItems: 1});
             });
@@ -46,12 +39,32 @@
             <p class="title"><a href="#">Noticias</a></p>
             <div class="content">
                 <div class="row">
+                    <div class="large-12 columns">
+                      <div class="row collapse">
+                        <form action="https://www.mozilla-hispano.org/buscar.php" id="form-buscador" method="get" target="_blank">
+                            <div class="small-3 columns">
+                                <select name="donde" id="destinoBusqueda">
+                                    <option value="docu" selected="selected">Documentaci&oacute;n</option>
+                                    <option value="noti">Noticias</option>
+                                    <option value="foro">Foros</option>
+                                </select>
+                                <input name="desde" value="docu" type="hidden">
+                            </div>
+                            <div class="small-7 columns">
+                                <input placeholder="Escribe tu consulta aqu&iacute;..." title="Escribe tu consulta aqu&iacute;" maxlength="128" id="keywords" name="q" type="text">
+                            </div>
+                            <div class="small-2 columns">
+                                <button type="submit" class="botonBuscar"><i class="icon-search"></i></button>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="small-6 columns">
-                        <h3>Noticias Mozilla Hispano</h3>
                         <div id="mozhispano"></div>
                     </div>
                     <div class="small-6 columns">
-                        <h3>Planet</h3>
                         <div id="planet"></div>
                     </div>
                 </div>
@@ -196,29 +209,11 @@
                 </p>
             </div>
         </section>
-        <section class="section">
-            <p class="title"><a href="#">Buscar</a></p>
-            <div class="content">
-                <div class="row">
-                    <div class="large-12 columns">
-                      <div class="row collapse">
-                        <div class="small-10 columns">
-                          <input type="text" id="busqueda" size="3em" width="" placeholder="Buscar...">
-                        </div>
-                        <div class="small-2 columns">
-                            <a id="buscar" target="_blank"><i class="icon-search"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 		<section class="section">
 			<p class="title"><a href="#">Acerca de</a></p>
 			<div class="content">
 				<p>
-					<img alt="Logo Mozilla Hispano" src="img/logoabout.png" width="100%">
-
+					<img alt="Logo Mozilla Hispano" src="img/logoabout.png" width="85%">5
                     <p class="first" style="text-align: justify"><strong>El Centro de Mozilla Hispano</strong> es una Addon 
                     para <a href="www.mozilla.org/firefox/fx/" target="_blank">Mozilla Firefox</a> creado con el fin de
                     agilizar y facilitar el acceso a distintas herramientas e informaci&oacute;n que los voluntarios de las diferentes areas de
