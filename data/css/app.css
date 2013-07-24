@@ -171,7 +171,7 @@ select {
     height: 14em !important;
 }
 #reuniones .rssBody, #eventos .rssBody {
-    height: 5em !important;
+    height: 9em !important;
 }
 .desc {
     font-size: 0.9em;
